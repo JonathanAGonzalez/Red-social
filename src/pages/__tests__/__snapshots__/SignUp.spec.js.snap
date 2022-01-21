@@ -28,6 +28,7 @@ exports[`SignUp Layout Rendered correctly 1`] = `
                 <label
                   class="form-label"
                   for="email"
+                  id="email"
                 >
                   Correo Electronico:
                 </label>
@@ -37,6 +38,7 @@ exports[`SignUp Layout Rendered correctly 1`] = `
                   name="email"
                   placeholder="Jona@jona.com"
                   type="email"
+                  value=""
                 />
               </div>
               <div
@@ -45,6 +47,7 @@ exports[`SignUp Layout Rendered correctly 1`] = `
                 <label
                   class="form-label"
                   for="password"
+                  id="password"
                 >
                   Contraseña:
                 </label>
@@ -54,6 +57,7 @@ exports[`SignUp Layout Rendered correctly 1`] = `
                   name="password"
                   placeholder="Ingresá tu contraseña"
                   type="password"
+                  value=""
                 />
               </div>
               <input
