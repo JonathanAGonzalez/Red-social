@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { SignUpValidation } from '../validation/validation';
+import { signupFirebase } from '../firebase/auth/functions';
 import InputComponent from '../components/InputComponent';
 
-const SignUp = () => {
+const SignUp = ({ signUp = signupFirebase }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState({});
@@ -13,18 +14,16 @@ const SignUp = () => {
     setError({});
     try {
       const validation = SignUpValidation(email, password);
-      if (validation.isValid) {
+      if (!validation.isValid) {
         setError(validation.errors);
-      };
-
-
+        return;
+      }
+      signUp(email, password);
     } catch (error) {
       console.log(error);
     }
-
   }
 
-  console.log(error);
 
   return (
     <div className="container pt-5">

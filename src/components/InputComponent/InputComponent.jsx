@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
-const InputComponent = ({
-    labelText,
-    id,
-    type,
-    placeholder,
-    onChange,
-    value,
-    error
-}) => {
+const InputComponent = (props) => {
+    const {
+        labelText,
+        id,
+        type,
+        placeholder,
+        onChange,
+        value,
+        error
+    } = props;
     return (
         <div className="mb-3">
             <label className={error ? "form-label text-danger" : "form-label"} aria-label={labelText} htmlFor={id} id={id}>
