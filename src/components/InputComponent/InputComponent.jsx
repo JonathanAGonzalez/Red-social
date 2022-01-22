@@ -6,14 +6,15 @@ const InputComponent = ({
     placeholder,
     onChange,
     value,
+    error
 }) => {
     return (
         <div className="mb-3">
-            <label className="form-label" aria-label={labelText} htmlFor={id} id={id}>
+            <label className={error ? "form-label text-danger" : "form-label"} aria-label={labelText} htmlFor={id} id={id}>
                 {labelText}
             </label>
             <input
-                className="form-control"
+                className={error ? "form-control is-invalid" : "form-control "}
                 type={type}
                 name={id}
                 id={id}
@@ -21,6 +22,7 @@ const InputComponent = ({
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
             />
+            {error && <div className='invalid-feedback'>{error}</div>}
         </div>
     );
 };
@@ -30,6 +32,7 @@ InputComponent.propTypes = {
     id: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired,
+    error: PropTypes.string
 };
 
 InputComponent.defaultProps = {

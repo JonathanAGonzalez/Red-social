@@ -1,15 +1,30 @@
 import { useState } from 'react';
+import { SignUpValidation } from '../validation/validation';
 import InputComponent from '../components/InputComponent';
+
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState({});
 
-  const createAccount = (e) => {
+
+  const createAccount = async (e) => {
     e.preventDefault();
-    setEmail('')
-    setPassword('')
+    setError({});
+    try {
+      const validation = SignUpValidation(email, password);
+      if (validation.isValid) {
+        setError(validation.errors);
+      };
+
+
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
+  console.log(error);
 
   return (
     <div className="container pt-5">
@@ -28,7 +43,9 @@ const SignUp = () => {
                   type='email'
                   placeholder='Jona@jona.com'
                   value={email}
-                  onChange={setEmail} />
+                  onChange={setEmail}
+                  error={error.email}
+                />
 
                 <InputComponent
                   labelText='Contraseña:'
@@ -36,7 +53,9 @@ const SignUp = () => {
                   type='password'
                   placeholder='Ingresá tu contraseña'
                   value={password}
-                  onChange={setPassword} />
+                  onChange={setPassword}
+                  error={error.password}
+                />
 
                 <input className='btn btn-primary' aria-label='Crear cuenta' type="submit" value="Crear cuenta" id='submit' />
               </form>

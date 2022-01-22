@@ -14,7 +14,7 @@ exports[`InputComponent Layout should rendered correctly 1`] = `
       Correo Electronico:
     </label>
     <input
-      class="form-control"
+      class="form-control "
       id="email"
       name="email"
       placeholder="jona@jona.com"
