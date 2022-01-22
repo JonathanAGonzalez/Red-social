@@ -8,7 +8,6 @@ const SignUp = () => {
     e.preventDefault();
     setEmail('')
     setPassword('')
-    console.log('Enviado');
   }
 
 
@@ -21,7 +20,7 @@ const SignUp = () => {
               <h3>Crear cuenta</h3>
               <hr />
 
-              <form onSubmit={createAccount}>
+              <form onSubmit={createAccount} id="form" >
 
                 <InputComponent
                   labelText='Correo Electronico:'
@@ -39,7 +38,7 @@ const SignUp = () => {
                   value={password}
                   onChange={setPassword} />
 
-                <input className='btn btn-primary' type="submit" value="Crear cuenta" id='submit' />
+                <input className='btn btn-primary' aria-label='Crear cuenta' type="submit" value="Crear cuenta" id='submit' />
               </form>
             </div>
           </div>

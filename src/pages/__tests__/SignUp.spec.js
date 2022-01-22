@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react';
-
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import SignUp from '../SignUp';
 
 describe('SignUp', () => {
@@ -10,20 +10,20 @@ describe('SignUp', () => {
     });
 
     test('It must have a field to write email.', () => {
-      const { container } = render(<SignUp />);
-      const inputEmail = container.querySelector('#email');
+      render(<SignUp />);
+      const inputEmail = screen.getByLabelText('Correo Electronico:');
       expect(inputEmail).toBeInTheDocument();
     });
 
     test('It must have a field to write password.', () => {
-      const { container } = render(<SignUp />);
-      const inputPassword = container.querySelector('#password');
+      render(<SignUp />);
+      const inputPassword = screen.getByLabelText('Contraseña:');
       expect(inputPassword).toBeInTheDocument();
     });
 
     test('It must have a field to Submit.', () => {
-      const { container } = render(<SignUp />);
-      const inputSubmit = container.querySelector('#submit');
+      render(<SignUp />);
+      const inputSubmit = screen.getByLabelText('Crear cuenta');
       expect(inputSubmit).toBeInTheDocument();
     });
   });

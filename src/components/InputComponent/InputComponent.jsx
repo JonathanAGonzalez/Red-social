@@ -9,7 +9,7 @@ const InputComponent = ({
 }) => {
     return (
         <div className="mb-3">
-            <label className="form-label" htmlFor={id} id={id}>
+            <label className="form-label" aria-label={labelText} htmlFor={id} id={id}>
                 {labelText}
             </label>
             <input

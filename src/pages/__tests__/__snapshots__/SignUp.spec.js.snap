@@ -21,11 +21,14 @@ exports[`SignUp Layout Rendered correctly 1`] = `
               Crear cuenta
             </h3>
             <hr />
-            <form>
+            <form
+              id="form"
+            >
               <div
                 class="mb-3"
               >
                 <label
+                  aria-label="Correo Electronico:"
                   class="form-label"
                   for="email"
                   id="email"
@@ -45,6 +48,7 @@ exports[`SignUp Layout Rendered correctly 1`] = `
                 class="mb-3"
               >
                 <label
+                  aria-label="Contraseña:"
                   class="form-label"
                   for="password"
                   id="password"
@@ -61,6 +65,7 @@ exports[`SignUp Layout Rendered correctly 1`] = `
                 />
               </div>
               <input
+                aria-label="Crear cuenta"
                 class="btn btn-primary"
                 id="submit"
                 type="submit"
